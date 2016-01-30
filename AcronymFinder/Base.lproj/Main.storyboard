@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +22,72 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACRONYM FINDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plg-0N-v6E">
+                                <rect key="frame" x="222" y="26" width="157" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="157" id="R8l-pO-G8U"/>
+                                    <constraint firstAttribute="height" constant="29" id="wMx-Eo-OtV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter an Acronym" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w0w-Em-jao">
+                                <rect key="frame" x="131" y="70" width="338" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="338" id="BaZ-Mq-AOu"/>
+                                    <constraint firstAttribute="height" constant="30" id="GgU-db-xHE"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wke-Fu-weY">
+                                <rect key="frame" x="269" y="118" width="63" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="OFf-99-mJl"/>
+                                    <constraint firstAttribute="height" constant="30" id="YLU-WX-XZD"/>
+                                </constraints>
+                                <state key="normal" title="SUBMIT">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmB-WN-W42"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lKi-qW-mCu">
+                                <rect key="frame" x="20" y="167" width="560" height="413"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="dXQ-Nc-pDJ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="P8w-gf-6wS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wke-Fu-weY" firstAttribute="top" secondItem="w0w-Em-jao" secondAttribute="bottom" constant="18" id="6hJ-XN-NtY"/>
+                            <constraint firstItem="w0w-Em-jao" firstAttribute="top" secondItem="Plg-0N-v6E" secondAttribute="bottom" constant="15" id="7ax-ZT-jnT"/>
+                            <constraint firstItem="lKi-qW-mCu" firstAttribute="top" secondItem="wke-Fu-weY" secondAttribute="bottom" constant="19" id="M6O-CM-eg8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lKi-qW-mCu" secondAttribute="bottom" constant="20" id="Sbh-XG-PsG"/>
+                            <constraint firstItem="lKi-qW-mCu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="V2Z-hY-9t0"/>
+                            <constraint firstItem="w0w-Em-jao" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="evU-i0-Cw1"/>
+                            <constraint firstItem="Plg-0N-v6E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fvc-YX-cQO"/>
+                            <constraint firstItem="lKi-qW-mCu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="j59-IN-eRp"/>
+                            <constraint firstItem="Plg-0N-v6E" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="6" id="nf8-Qj-x7N"/>
+                            <constraint firstItem="wke-Fu-weY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uzw-Sr-hZw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="acronymTblView" destination="lKi-qW-mCu" id="khf-ag-nqc"/>
+                        <outlet property="acronymTxtField" destination="w0w-Em-jao" id="2j2-Ir-dmM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="322"/>
         </scene>
     </scenes>
 </document>
